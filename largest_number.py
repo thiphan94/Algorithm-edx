@@ -3,11 +3,23 @@
 import sys
 
 
+def isgreaterorequal(a, b):
+    a, b = str(a), str(b)
+    if int(a + b) >= int(b + a):
+        return True
+    else:
+        return False
+
+
 def largest_number(a):
-    a.sort(reverse=True)
     res = ""
-    for x in a:
-        res += x
+    while a != []:
+        max = 0
+        for i in a:
+            if isgreaterorequal(i, max):
+                max = i
+        res += max
+        a.remove(max)
     return res
 
 
